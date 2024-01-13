@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "839055180083",
+    "firebase_url": "https://turing-emitter-392118-default-rtdb.firebaseio.com",
+    "project_id": "turing-emitter-392118",
+    "storage_bucket": "turing-emitter-392118.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839055180083:android:4b4195ad955d5e0c11be46",
+        "android_client_info": {
+          "package_name": "com.example.learning"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgF6daW2Ltx6vNpOaRqZgw5JujsCMsdzM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839055180083:android:7f58c66f4479d42f11be46",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgF6daW2Ltx6vNpOaRqZgw5JujsCMsdzM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839055180083:android:9dd818734203b38211be46",
+        "android_client_info": {
+          "package_name": "org.tensorflow.lite.examples.poseestimation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgF6daW2Ltx6vNpOaRqZgw5JujsCMsdzM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SMS_RECEIVED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/lion"
+        android:label="Sportingo"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@drawable/lion"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PoseEstimation"
+        tools:targetApi="n">
+        <activity
+            android:name="org.tensorflow.lite.examples.poseestimation.ForgotActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.myapplication.AppActivity"
+            android:exported="true"
+            android:label="Sportingo"
+            android:theme="@style/Theme.Material3.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.myapplication.Register"
+            android:exported="false"
+            android:label="@string/title_activity_register"
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
+        <activity
+            android:name="com.example.myapplication.loginActivity"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.lite.examples.poseestimation.MainActivity"
+            android:exported="false"></activity>
+    </application>
+
+</manifest>
