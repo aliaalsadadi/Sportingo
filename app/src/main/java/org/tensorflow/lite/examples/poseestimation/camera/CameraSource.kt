@@ -32,6 +32,10 @@ import android.os.HandlerThread
 import android.util.Log
 import android.view.Surface
 import android.view.SurfaceView
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.suspendCancellableCoroutine
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.examples.poseestimation.VisualizationUtils
@@ -54,6 +58,9 @@ import kotlin.math.atan2
 
 class CameraSource(
     private val surfaceView: SurfaceView,
+    private val matchId: String,
+    private val isP1: Boolean,
+    private val  matchDoc: DocumentReference? = null,
     private val listener: CameraSourceListener? = null
 ) {
 
@@ -66,19 +73,15 @@ class CameraSource(
         private const val TAG = "Camera Source"
     }
     //counter for left bicep, right bicep, pushup and situps
-    public var rightcounter = 0
-    public var leftcounter = 0
     public var pushUpCounter = 0
     public var sitUpCounter = 0
-
+    private val db = Firebase.firestore
 
     private val pushupModel = Interpreter(FileUtil.loadMappedFile(surfaceView.context,"pushup.tflite"))
     private val situpModel = Interpreter(FileUtil.loadMappedFile(surfaceView.context,"situp.tflite"))
 
-    private var leftStage: String? = null
     private var pushupStage: String? = null
     private var situpStage: String? = null
-    private var rightStage: String? = null
     private val lock = Any()
     private var detector: PoseDetector? = null
     private var classifier: PoseClassifier? = null
@@ -261,16 +264,6 @@ class CameraSource(
         frameProcessedInOneSecondInterval = 0
         framesPerSecond = 0
     }
-    private fun calculateAngle(a: Array<Float>,b: Array<Float>,c: Array<Float>): Double {
-
-        //tan(theta) = c[1]-b[1]/c[0]-b[0]
-        val radians = atan2(c[1]-b[1],c[0]-b[0]) - atan2(a[1]-b[1],a[0]-b[0])
-        var angle = radians*180.0/ PI
-        if (angle>180){
-            angle = 360-angle
-        }
-        return angle
-    }
     private fun pushupInference(keyRecords: FloatArray): Float {
         val output = Array(1) {
             FloatArray(
@@ -294,7 +287,6 @@ class CameraSource(
         for (keypoint in person.keyPoints){
             input.add(keypoint.coordinate.x)
             input.add(keypoint.coordinate.y)
-            input.add(keypoint.score)
         }
         return input.toFloatArray()
     }
@@ -329,6 +321,27 @@ class CameraSource(
                 }
                 if (resultPushup>0.9 && pushupStage=="down"){
                     pushUpCounter++
+                    if (isP1 && matchId.isNotEmpty()){
+                        val fieldToIncrement = "p1Points"
+                        val incrementBy = 1 // You can change this value based on how much you want to increment
+                        matchDoc!!.update(fieldToIncrement, FieldValue.increment(incrementBy.toDouble()))
+                            .addOnSuccessListener {
+                                Log.d("FirestoreUpdate", "Field $fieldToIncrement incremented by $incrementBy successfully.")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.e("FirestoreUpdate", "Error incrementing field $fieldToIncrement: $e")
+                            }
+                    }else if (matchId.isNotEmpty()){
+                        val fieldToIncrement = "p2Points"
+                        val incrementBy = 1 // You can change this value based on how much you want to increment
+                        matchDoc!!.update(fieldToIncrement, FieldValue.increment(incrementBy.toDouble()))
+                            .addOnSuccessListener {
+                                Log.d("FirestoreUpdate", "Field $fieldToIncrement incremented by $incrementBy successfully.")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.e("FirestoreUpdate", "Error incrementing field $fieldToIncrement: $e")
+                            }
+                    }
                     pushupStage="up"
                 }
                 Log.e(TAG, resultPushup.toString())
@@ -343,29 +356,7 @@ class CameraSource(
                     situpStage="up"
                 }
                 Log.e(TAG,resultSitup.toString())
-                val rightelbow = arrayOf(persons[0].keyPoints.get(BodyPart.RIGHT_ELBOW.position).coordinate.x, persons[0].keyPoints.get(BodyPart.RIGHT_ELBOW.position).coordinate.y)
-                val rightshoulder = arrayOf(persons[0].keyPoints.get(BodyPart.RIGHT_SHOULDER.position).coordinate.x, persons[0].keyPoints.get(BodyPart.RIGHT_SHOULDER.position).coordinate.y)
-                val rightwrist = arrayOf(persons[0].keyPoints.get(BodyPart.RIGHT_WRIST.position).coordinate.x, persons[0].keyPoints.get(BodyPart.RIGHT_WRIST.position).coordinate.y)
-                val rightangle = calculateAngle(rightshoulder,rightelbow,rightwrist)
-                if (rightangle>160){
-                    rightStage="down"
-                }
-                if (rightangle<40 && rightStage=="down"){
-                    rightStage="up"
-                    rightcounter++
-                }
 
-                val leftelbow = arrayOf(persons[0].keyPoints.get(BodyPart.LEFT_ELBOW.position).coordinate.x, persons[0].keyPoints.get(BodyPart.LEFT_ELBOW.position).coordinate.y)
-                val leftshoulder = arrayOf(persons[0].keyPoints.get(BodyPart.LEFT_SHOULDER.position).coordinate.x, persons[0].keyPoints.get(BodyPart.LEFT_SHOULDER.position).coordinate.y)
-                val leftwrist = arrayOf(persons[0].keyPoints.get(BodyPart.LEFT_WRIST.position).coordinate.x, persons[0].keyPoints.get(BodyPart.LEFT_WRIST.position).coordinate.y)
-                val leftangle = calculateAngle(leftshoulder,leftelbow,leftwrist)
-                if (leftangle>160){
-                    leftStage="down"
-                }
-                if (leftangle<40 && leftStage=="down"){
-                    leftStage="up"
-                    leftcounter++
-                }
             }
         }
         visualize(persons, bitmap)

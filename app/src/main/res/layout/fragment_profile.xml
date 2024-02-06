@@ -31,17 +31,6 @@
             <!-- First Row -->
             <TableRow>
                 <!-- Column 1 -->
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Bicep Curls"
-                    android:fontFamily="sans-serif-medium"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:padding="16dp" />
 
                 <!-- Column 2 -->
                 <TextView
@@ -73,15 +62,6 @@
             <!-- Second Row -->
             <TableRow>
                 <!-- Column 1 -->
-                <TextView
-                    android:id="@+id/curls"
-                    android:gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:layout_weight="1"
-                    android:textSize="20sp"
-                    android:padding="16dp" />
 
                 <!-- Column 2 -->
                 <TextView
@@ -116,6 +96,14 @@
             android:background="@drawable/rossena"
             android:drawableEnd="@drawable/logout"
             android:text="Log Out"
+            app:cornerRadius="45dp" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/race"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rossena"
+            android:text="Pushup Race"
             app:cornerRadius="45dp" />
 
     </LinearLayout>

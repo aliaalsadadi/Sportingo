@@ -122,7 +122,6 @@ class Register : ComponentActivity() {
                         ).show()
                         val user_Data = hashMapOf(
                             "user" to username,
-                            "bicep" to 0,
                             "situps" to 0,
                             "pushups" to 0,
                         )

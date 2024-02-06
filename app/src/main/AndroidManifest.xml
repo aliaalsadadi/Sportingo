@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.SMS_RECEIVED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- <uses-permission android:name="android.permission.READ_SMS"/> -->
+    <!-- <uses-permission android:name="android.permission.RECEIVE_SMS" /> -->
+    <!-- <uses-permission android:name="android.permission.SMS_RECEIVED" /> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -27,6 +27,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PoseEstimation"
         tools:targetApi="n">
+        <activity android:name="org.tensorflow.lite.examples.poseestimation.RaceActivity"
+            android:exported="false"
+            android:label="RaceActivity"
+            android:theme="@style/Theme.PoseEstimation"/>
+        <activity
+            android:name="org.tensorflow.lite.examples.poseestimation.matchActivity"
+            android:exported="false"
+            android:label="@string/title_activity_match"
+            android:theme="@style/Theme.PoseEstimation" />
+        <activity
+            android:name="org.tensorflow.lite.examples.poseestimation.WinActivity"
+            android:exported="false"
+            android:label="@string/title_activity_win"
+            android:theme="@style/Theme.PoseEstimation" />
         <activity
             android:name="org.tensorflow.lite.examples.poseestimation.ForgotActivity"
             android:exported="false" />
@@ -51,7 +65,7 @@
             android:exported="false" />
         <activity
             android:name="org.tensorflow.lite.examples.poseestimation.MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

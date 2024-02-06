@@ -66,8 +66,6 @@ class MainActivity : AppCompatActivity() {
 
     /** Default device is CPU */
     private var device = Device.CPU
-    private lateinit var rightCount: TextView
-    private lateinit var leftCount: TextView
     private lateinit var pushupCount: TextView
     private lateinit var situpCount: TextView
     private lateinit var endButton: Button
@@ -134,16 +132,12 @@ class MainActivity : AppCompatActivity() {
         endButton = findViewById(R.id.endBtn)
 
         endButton.setOnClickListener{
-            val rightCountValue = rightCount.text.toString().toIntOrNull() ?: 0
-            val leftCountValue = cameraSource!!.leftcounter
             val pushupCount = cameraSource!!.pushUpCounter
             val situpCount = cameraSource!!.sitUpCounter
             userDoc.get()
                 .addOnSuccessListener {document ->
-                    val currCurls: Int = document.get("bicep").toString().toDouble().toInt()
                     val currPushUps: Int = document.get("pushups").toString().toDouble().toInt()
                     val currSitUps: Int = document.get("situps").toString().toDouble().toInt()
-                    userDoc.update("bicep", currCurls+rightCountValue+leftCountValue)
                     userDoc.update("pushups", currPushUps+pushupCount)
                     userDoc.update("situps",currSitUps+situpCount)
                 }
@@ -155,8 +149,6 @@ class MainActivity : AppCompatActivity() {
 
 
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        rightCount = findViewById(R.id.rightBicep)
-        leftCount = findViewById(R.id.leftBicep)
         pushupCount = findViewById(R.id.pushups)
         situpCount = findViewById(R.id.situps)
         surfaceView = findViewById(R.id.surfaceView)
@@ -195,17 +187,15 @@ class MainActivity : AppCompatActivity() {
         if (isCameraPermissionGranted()) {
             if (cameraSource == null) {
                 cameraSource =
-                    CameraSource(surfaceView, object : CameraSource.CameraSourceListener {
+                    CameraSource(surfaceView,"",false, matchDoc = null,object : CameraSource.CameraSourceListener {
 
                         override fun onDetectedInfo(
                             personScore: Float?,
                             poseLabels: List<Pair<String, Float>>?
                         ) {
                             runOnUiThread {
-                                rightCount.text = cameraSource?.rightcounter.toString()
                                 pushupCount.text = cameraSource?.pushUpCounter.toString()
                                 situpCount.text = cameraSource?.sitUpCounter.toString()
-                                leftCount.text = cameraSource?.leftcounter.toString()
                             }
                         }
 

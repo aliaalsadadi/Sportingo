@@ -36,7 +36,7 @@ class PodiumFragment : Fragment() {
             table.removeViews(1, childCount - 1)
         }
     }
-    private fun makeRow(names: MutableList<String>, curlList: MutableList<String>, pushupsList: MutableList<String>, situpsList: MutableList<String> , totalList: MutableList<Int>, username: String): ArrayList<TableRow> {
+    private fun makeRow(names: MutableList<String>,  pushupsList: MutableList<String>, situpsList: MutableList<String> , totalList: MutableList<Int>, username: String): ArrayList<TableRow> {
         var array = arrayListOf<TableRow>()
 
         for (i in names.indices){
@@ -55,13 +55,6 @@ class PodiumFragment : Fragment() {
             name.layoutParams = TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1F)
             row.addView(name)
 
-            val curls = TextView(requireContext())
-            curls.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-            curls.text = curlList[i]
-            curls.gravity = Gravity.CENTER
-            curls.textSize = 15F
-            curls.layoutParams = TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1F)
-            row.addView(curls)
 
             val pushups = TextView(requireContext())
             pushups.text = pushupsList[i]
@@ -91,7 +84,6 @@ class PodiumFragment : Fragment() {
             {
                 row.setBackgroundResource(R.drawable.rossena)
                 name.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
-                curls.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
                 pushups.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
                 situps.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
                 total.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
@@ -113,7 +105,6 @@ class PodiumFragment : Fragment() {
                     .get()
                     .addOnSuccessListener { result ->
                         var names = mutableListOf<String>()
-                        var curlList = mutableListOf<String>()
                         var pushupsList = mutableListOf<String>()
                         var situpsList = mutableListOf<String>()
                         var totalList = mutableListOf<Int>()
@@ -121,13 +112,11 @@ class PodiumFragment : Fragment() {
 
                         for (document in result) {
                             names.add(document.getString("user")!!)
-                            val bicep = document.get("bicep").toString().toIntOrNull() ?: 0 // Check if the value is a valid integer
                             val pushups = document.get("pushups").toString().toIntOrNull() ?: 0 // Check if the value is a valid integer
                             val situps = document.get("situps").toString().toIntOrNull() ?: 0 // Check if the value is a valid integer
-                            curlList.add(bicep.toString())
                             pushupsList.add(pushups.toString())
                             situpsList.add(situps.toString())
-                            totalList.add(bicep + pushups + situps)
+                            totalList.add(pushups + situps)
                         }
 
 
@@ -138,11 +127,10 @@ class PodiumFragment : Fragment() {
                         val sortedIndices = indexList.sortedWith(comparator)
 
                         names = sortedIndices.map { names[it] }.toMutableList()
-                        curlList = sortedIndices.map { curlList[it] }.toMutableList()
                         pushupsList = sortedIndices.map { pushupsList[it] }.toMutableList()
                         situpsList = sortedIndices.map { situpsList[it] }.toMutableList()
                         totalList = sortedIndices.map { totalList[it] }.toMutableList()
-                        val arrRows = makeRow(names, curlList, pushupsList, situpsList, totalList, username)
+                        val arrRows = makeRow(names, pushupsList, situpsList, totalList, username)
                         for (row in arrRows) {
                             table.addView(row)
                         }

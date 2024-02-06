@@ -48,8 +48,9 @@
     <string name="pushups">pushups</string>
     <string name="Pushups">Pushups:</string>
     <string name="situps">Situps:</string>
-    <string name="left_bicep_reps">left Bicep reps:</string>
-    <string name="right_bicep_reps">right Bicep reps:</string>
     <string name="end_session">End Session</string>
     <string name="emailId">sportingoofficial@gmail.com</string>
+    <string name="title_activity_race">RaceActivity</string>
+    <string name="title_activity_win">WinActivity</string>
+    <string name="title_activity_match">matchActivity</string>
 </resources>
