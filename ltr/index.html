@@ -10,6 +10,7 @@
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Sportingo - Dashboard</title>
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -35,6 +36,20 @@
     <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+  
+    <style>
+      .box {
+          position: absolute;
+          right: 50px;
+          top: 100px;
+      }
+      .box-two {
+          position: absolute;
+          right: 50px;
+          top: 400px;
+      }
+    </style>
+
   </head>
   <body>
     <!-- Loader starts-->
@@ -284,10 +299,73 @@
               </div>
             </div>
           </div>
+
+          
+          <div class="container-yellow">
+            <div class="box col-xl-3 xl-50 col-md-6 box-col-6">
+                <div class="card gradient-warning o-hidden">
+                    <div class="card-body tag-card">
+                        <div class="default-chart">
+                            <div class="apex-widgets">
+                                <div id="area-widget-chart-3"></div>
+                            </div>
+                            <div class="widgets-bottom">
+                                <h5 class="f-w-700 mb-0">Total Stock<span class="pull-right">70 / 100   </span></h5>
+                            </div>
+                        </div>
+                        <span class="tag-hover-effect">
+                            <span class="dots-group">
+                                <span class="dots dots1"></span>
+                                <span class="dots dots2 dot-small"></span>
+                                <span class="dots dots3 dot-small"></span>
+                                <span class="dots dots4 dot-medium"></span>
+                                <span class="dots dots5 dot-small"></span>
+                                <span class="dots dots6 dot-small"></span>
+                                <span class="dots dots7 dot-small-semi"></span>
+                                <span class="dots dots8 dot-small-semi"></span>
+                                <span class="dots dots9 dot-small">     </span>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-blue">
+          <div class="box-two col-xl-3 xl-50 col-md-6 box-col-6">
+              <div class="card gradient-info o-hidden">
+                  <div class="card-body tag-card">
+                      <div class="default-chart">
+                          <div class="apex-widgets">
+                              <div id="area-widget-chart-4"></div>
+                          </div>
+                          <div class="widgets-bottom">
+                              <h5 class="f-w-700 mb-0">Total Stock<span class="pull-right">70 / 100   </span></h5>
+                          </div>
+                      </div>
+                      <span class="tag-hover-effect">
+                          <span class="dots-group">
+                              <span class="dots dots1"></span>
+                              <span class="dots dots2 dot-small"></span>
+                              <span class="dots dots3 dot-small"></span>
+                              <span class="dots dots4 dot-medium"></span>
+                              <span class="dots dots5 dot-small"></span>
+                              <span class="dots dots6 dot-small"></span>
+                              <span class="dots dots7 dot-small-semi"></span>
+                              <span class="dots dots8 dot-small-semi"></span>
+                              <span class="dots dots9 dot-small">     </span>
+                          </span>
+                      </span>
+                  </div>
+              </div>
+          </div>
+      </div>
+            
+
           <div class="col-xl-8 xl-100 box-col-12">
             <div class="card">
               <div class="card-header no-border">
-                <h5>Recent Buyers</h5>
+                <h5>Leaderboard</h5>
                 <ul class="creative-dots">
                   <li class="bg-primary big-dot"></li>
                   <li class="bg-secondary semi-big-dot"></li>
@@ -296,16 +374,15 @@
                   <li class="bg-secondary semi-small-dot"></li>
                   <li class="bg-primary small-dot"></li>
                 </ul>
-                <div class="card-header-right">
+                <!-- <div class="card-header-right">
                   <ul class="list-unstyled card-option">
-                    <li><i class="icofont icofont-gear fa fa-spin font-primary"></i></li>
-                    <li><i class="view-html fa fa-code font-primary"></i></li>
+                    <li><i class="icofont icofont-gear fa fa-spin font-primary custom-icon"></i></li>
                     <li><i class="icofont icofont-maximize full-card font-primary"></i></li>
                     <li><i class="icofont icofont-minus minimize-card font-primary"></i></li>
                     <li><i class="icofont icofont-refresh reload-card font-primary"></i></li>
                     <li><i class="icofont icofont-error close-card font-primary"></i></li>
                   </ul>
-                </div>
+                </div> -->
               </div>
               <div class="card-body pt-0">
                 <div class="activity-table table-responsive recent-table custom-scrollbar">
@@ -316,12 +393,12 @@
                           <div class="recent-images"><img class="img-fluid" src="../assets/images/dashboard/recent-user-1.png" alt=""></div>
                         </td>
                         <td>
-                          <h5 class="default-text mb-0 f-w-700 f-18">Nick Stone</h5>
+                          <h5 class="default-text mb-0 f-w-700 f-18">Ali Alsadadi</h5>
                         </td>
-                        <td><span class="badge rounded-pill recent-badge f-12">New York</span></td>
-                        <td class="f-w-700">458-4594-5451</td>
+                        <td><span class="badge rounded-pill recent-badge f-12">Bahrain</span></td>
+                        <td class="f-w-700">Top #1</td>
                         <td>
-                          <h6 class="mb-0">15 Jan</h6>
+                          <h6 class="mb-0">21 Pushups</h6>
                         </td>
                         <td><span class="badge rounded-pill recent-badge"><i data-feather="more-horizontal"></i></span></td>
                       </tr>
@@ -330,12 +407,12 @@
                           <div class="recent-images-primary"><img class="img-fluid" src="../assets/images/dashboard/recent-user-2.png" alt=""></div>
                         </td>
                         <td>
-                          <h5 class="font-primary mb-0 f-w-700 f-18">Milano Esco</h5>
+                          <h5 class="font-primary mb-0 f-w-700 f-18">Mohammed Alsaegh</h5>
                         </td>
-                        <td><span class="badge rounded-pill recent-badge f-12">Brazil</span></td>
-                        <td class="f-w-700">812-4896-9812</td>
+                        <td><span class="badge rounded-pill recent-badge f-12">K.S.A</span></td>
+                        <td class="f-w-700">Top #2</td>
                         <td>
-                          <h6 class="mb-0">06 Feb</h6>
+                          <h6 class="mb-0">18 Pushups</h6>
                         </td>
                         <td><span class="badge rounded-pill recent-badge"><i data-feather="more-horizontal"></i></span></td>
                       </tr>
@@ -344,12 +421,12 @@
                           <div class="recent-images-secondary"><img class="img-fluid" src="../assets/images/dashboard/recent-user-3.png" alt=""></div>
                         </td>
                         <td>
-                          <h5 class="font-secondary mb-0 f-w-700 f-18">Charlie Pol</h5>
+                          <h5 class="font-secondary mb-0 f-w-700 f-18">Hussain Humaidan</h5>
                         </td>
-                        <td><span class="badge rounded-pill recent-badge f-12">London</span></td>
-                        <td class="f-w-700">215-0324-6541</td>
+                        <td><span class="badge rounded-pill recent-badge f-12">Bahrain</span></td>
+                        <td class="f-w-700">Top #3</td>
                         <td>
-                          <h6 class="mb-0">22 Feb</h6>
+                          <h6 class="mb-0">17 Pushups</h6>
                         </td>
                         <td><span class="badge rounded-pill recent-badge"><i data-feather="more-horizontal"></i></span></td>
                       </tr>
@@ -361,9 +438,9 @@
                           <h5 class="font-warning mb-0 f-w-700 f-18">Jordi Esol</h5>
                         </td>
                         <td><span class="badge rounded-pill recent-badge f-12">U.S.A</span></td>
-                        <td class="f-w-700">748-0012-3487</td>
+                        <td class="f-w-700">Top #4</td>
                         <td>
-                          <h6 class="mb-0">18 Mar</h6>
+                          <h6 class="mb-0">13 Pushups</h6>
                         </td>
                         <td><span class="badge rounded-pill recent-badge"><i data-feather="more-horizontal"></i></span></td>
                       </tr>
@@ -442,41 +519,12 @@
               </div>
             </div>
           </div>
+
+          
+
+
           <!-- Container-fluid starts-->
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-lg-12 xl-100">
-                <div class="row">
-                  <div class="col-xl-3 xl-50 col-md-6 box-col-6">
-                    <div class="card gradient-warning o-hidden">
-                      <div class="card-body tag-card">
-                        <div class="default-chart">
-                          <div class="apex-widgets">
-                            <div id="area-widget-chart-3"></div>
-                          </div>
-                          <div class="widgets-bottom">
-                            <h5 class="f-w-700 mb-0">Total Stock<span class="pull-right">70 / 100   </span></h5>
-                          </div>
-                        </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small">     </span></span></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xl-3 xl-50 col-md-6 box-col-6">
-                    <div class="card gradient-info o-hidden">
-                      <div class="card-body tag-card">
-                        <div class="default-chart">
-                          <div class="apex-widgets">
-                            <div id="area-widget-chart-4"></div>
-                          </div>
-                          <div class="widgets-bottom">
-                            <h5 class="f-w-700 mb-0">Total Value<span class="pull-right">70 / 100   </span></h5>
-                          </div>
-                        </div><span class="tag-hover-effect"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small">     </span></span></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          
               <div class="col-xl-8 xl-100 box-col-12">
                 <div class="card year-overview">
                   <div class="card-header no-border d-flex">
@@ -512,16 +560,15 @@
                       <li class="bg-secondary semi-small-dot"></li>
                       <li class="bg-primary small-dot"></li>
                     </ul>
-                    <div class="card-header-right">
+                    <!-- <div class="card-header-right">
                       <ul class="list-unstyled card-option">
                         <li><i class="icofont icofont-gear fa fa-spin font-primary"></i></li>
-                        <li><i class="view-html fa fa-code font-primary"></i></li>
                         <li><i class="icofont icofont-maximize full-card font-primary"></i></li>
                         <li><i class="icofont icofont-minus minimize-card font-primary"></i></li>
                         <li><i class="icofont icofont-refresh reload-card font-primary"></i></li>
                         <li><i class="icofont icofont-error close-card font-primary"></i></li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="card-body p-0">
                     <div class="radial-default">
@@ -567,16 +614,15 @@
                       <li class="bg-secondary semi-small-dot"></li>
                       <li class="bg-primary small-dot"></li>
                     </ul>
-                    <div class="card-header-right">
+                    <!-- <div class="card-header-right">
                       <ul class="list-unstyled card-option">
                         <li><i class="icofont icofont-gear fa fa-spin font-warning"></i></li>
-                        <li><i class="view-html fa fa-code font-warning"></i></li>
                         <li><i class="icofont icofont-maximize full-card font-warning"></i></li>
                         <li><i class="icofont icofont-minus minimize-card font-warning"></i></li>
                         <li><i class="icofont icofont-refresh reload-card font-warning"></i></li>
                         <li><i class="icofont icofont-error close-card font-warning"></i></li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="card-body pb-0 pt-0">
                     <div class="music-layer">
@@ -619,16 +665,15 @@ View More&lt;/button&gt;
                       <li class="bg-secondary semi-small-dot"></li>
                       <li class="bg-primary small-dot"></li>
                     </ul>
-                    <div class="card-header-right">
+                    <!-- <div class="card-header-right">
                       <ul class="list-unstyled card-option">
                         <li><i class="icofont icofont-gear fa fa-spin font-primary"></i></li>
-                        <li><i class="view-html fa fa-code font-primary"></i></li>
                         <li><i class="icofont icofont-maximize full-card font-primary"></i></li>
                         <li><i class="icofont icofont-minus minimize-card font-primary"></i></li>
                         <li><i class="icofont icofont-refresh reload-card font-primary"></i></li>
                         <li><i class="icofont icofont-error close-card font-primary"></i></li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="card-body pt-0">
                     <div class="activity-table table-responsive custom-scrollbar">
@@ -723,9 +768,9 @@ View More&lt;/button&gt;
               <div class="col-xl-4 xl-100 box-col-12">
                 <div class="card gradient-primary o-hidden">
                   <div class="card-body">
-                    <div class="setting-dot">
+                    <!-- <div class="setting-dot">
                       <div class="setting-bg-primary date-picker-setting position-set pull-right"><i class="fa fa-spin fa-cog"></i></div>
-                    </div>
+                    </div> -->
                     <div class="default-datepicker">
                       <div class="datepicker-here" data-language="en"></div>
                     </div><span class="default-dots-stay overview-dots full-width-dots"><span class="dots-group"><span class="dots dots1"></span><span class="dots dots2 dot-small"></span><span class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span class="dots dots7 dot-small-semi"></span><span class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small">   </span></span></span>
