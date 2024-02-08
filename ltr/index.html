@@ -191,9 +191,9 @@
               <li class="onhover-dropdown"> <span class="d-flex user-header"><img class="img-fluid" src="../assets/images/dashboard/user.png" alt=""></span>
                 <ul class="onhover-show-div profile-dropdown">
                   <li class="gradient-primary">
-                    <h5 class="f-w-600 mb-0">Elana Saint</h5><span>Athlete</span>
+                    <h5 class="f-w-600 mb-0"><p id="username_Display"></p></h5><span>Athlete</span>
                   </li>
-                  <li><i data-feather="user"> </i><a class="bar-icons" href="javascript:void(0)"><span onclick="console.log('Clicked !')">  Sign Out</span></a>
+                  <li><i data-feather="user"> </i><a class="bar-icons" href="javascript:void(0)"><span onclick="console.log(firebaseLogout())">  Sign Out</span></a>
                 </ul>
               </li>
             </ul>
@@ -533,7 +533,7 @@
           <div class="col-xl-6 xl-100 box-col-12">
             <div class="card">
               <div class="card-header no-border">
-                <h5>Today's Activity</h5>
+                <h5>Today's Activities</h5>
                 <ul class="creative-dots">
                   <li class="bg-primary big-dot"></li>
                   <li class="bg-secondary semi-big-dot"></li>
@@ -558,16 +558,16 @@
                     <tbody>
                       <tr>
                         <td>
-                          <div class="activity-image"><img class="img-fluid" src="../assets/images/dashboard/clipboard.png" alt=""></div>
+                          <div class="activity-image"><img class="img-fluid" src="../assets/images/dashboard/push-up.png" alt=""></div>
                         </td>
                         <td>
                           <div class="activity-details">
-                            <h4 class="default-text">15 <span class="f-14">November</span></h4>
-                            <h6>New Task Added</h6>
+                            <h4 class="default-text" id="pushups_Counter">Loading...</h4>
+                            <h6>Pushups</h6>
                           </div>
                         </td>
                         <td>
-                          <div class="activity-time"><span class="font-primary f-w-700">1 Day Ago</span><span class="d-block light-text">Your Work Deadline 18<sup>th</sup></span></div>
+                          <div class="activity-time"><span class="font-primary f-w-700">1 Minute Ago</span></div>
                         </td>
                         <td>
                           <button class="btn btn-shadow-primary">View</button>
@@ -575,16 +575,16 @@
                       </tr>
                       <tr>
                         <td>
-                          <div class="activity-image activity-secondary"><img class="img-fluid" src="../assets/images/dashboard/greeting.png" alt=""></div>
+                          <div class="activity-image activity-secondary"><img class="img-fluid" src="../assets/images/dashboard/gym.png" alt=""></div>
                         </td>
                         <td>
                           <div class="activity-details">
-                            <h4 class="default-text">01 <span class="f-14">January</span></h4>
-                            <h6>New Task Added</h6>
+                            <h4 class="default-text" id="situps_Counter">Loading...</h4>
+                            <h6>Situps</h6>
                           </div>
                         </td>
                         <td>
-                          <div class="activity-time"><span class="font-secondary f-w-700">10 Minute Ago</span><span class="d-block light-text">Update Your Work Today</span></div>
+                          <div class="activity-time"><span class="font-secondary f-w-700">10 Minutes Ago</span></div>
                         </td>
                         <td>
                           <button class="btn btn-shadow-secondary">View</button>
@@ -757,6 +757,12 @@ View More&lt;/button&gt;
         </footer>
       </div>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
+    <script src="../assets/js/script_await.js"></script>
     <!-- latest jquery-->
     <script src="../assets/js/jquery.min.js"></script>
     <!-- Bootstrap js-->

@@ -88,5 +88,3 @@ $("#document-toggle").click(function(){
     $("#myScrollspy").toggleClass("close");
     $(".document-header").toggleClass("close-header");
 })
-
-
