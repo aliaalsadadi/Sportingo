@@ -321,6 +321,7 @@ class CameraSource(
                 }
                 if (resultPushup>0.9 && pushupStage=="down"){
                     pushUpCounter++
+                    pushupStage="up"
                     if (isP1 && matchId.isNotEmpty()){
                         val fieldToIncrement = "p1Points"
                         val incrementBy = 1 // You can change this value based on how much you want to increment
@@ -342,7 +343,7 @@ class CameraSource(
                                 Log.e("FirestoreUpdate", "Error incrementing field $fieldToIncrement: $e")
                             }
                     }
-                    pushupStage="up"
+
                 }
                 Log.e(TAG, resultPushup.toString())
 
