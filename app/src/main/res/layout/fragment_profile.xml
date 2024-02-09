@@ -1,0 +1,111 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@drawable/background"
+        android:layout_gravity="center">
+
+        <!-- Add your UI elements and design specific to the Profile fragment here -->
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <!-- First Row -->
+            <TableRow>
+                <!-- Column 1 -->
+
+                <!-- Column 2 -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:text="Pushups"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:text="Situps"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <!-- Second Row -->
+            <TableRow>
+                <!-- Column 1 -->
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/pushups"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:padding="16dp" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/situps"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:padding="16dp" />
+            </TableRow>
+
+        </TableLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rossena"
+            android:drawableEnd="@drawable/logout"
+            android:text="Log Out"
+            app:cornerRadius="45dp" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/race"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rossena"
+            android:text="Pushup Race"
+            app:cornerRadius="45dp" />
+
+    </LinearLayout>
+
+</ScrollView>
