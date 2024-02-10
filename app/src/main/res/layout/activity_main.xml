@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.tensorflow.lite.examples.poseestimation.MainActivity">
+    tools:context="org.tensorflow.lite.examples.test.MainActivity">
 
     <SurfaceView
         android:id="@+id/surfaceView"

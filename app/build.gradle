@@ -11,10 +11,10 @@ android {
     buildToolsVersion '34.0.0'
 
     defaultConfig {
-        applicationId "org.tensorflow.lite.examples.poseestimation"
+        applicationId "org.tensorflow.lite.examples.test"
         minSdkVersion 23
         targetSdkVersion 33
-        versionCode 1
+        versionCode 3
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -73,6 +73,7 @@ dependencies {
     implementation 'org.tensorflow:tensorflow-lite:2.14.0'
     implementation 'org.tensorflow:tensorflow-lite-gpu:2.14.0'
     implementation 'org.tensorflow:tensorflow-lite-support:0.4.4'
+
     implementation 'androidx.annotation:annotation:1.7.1'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.2'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'

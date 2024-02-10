@@ -48,7 +48,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:839055180083:android:9dd818734203b38211be46",
         "android_client_info": {
-          "package_name": "org.tensorflow.lite.examples.poseestimation"
+          "package_name": "org.tensorflow.lite.examples.test"
         }
       },
       "oauth_client": [],
